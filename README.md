@@ -70,3 +70,47 @@ $ git init
 ```bash
 $ git config --global user.name "user_name"
 ```
+
+##### 11. To clone git file 
+```bash
+$ git clone webpageaddress
+```
+
+##### 12. Remote
+```bash 
+$ git remote -v (to view the location of main file and where the file can be push)
+$ git remote set-url origin "url" (to set the location of main file and push location)
+$ git remote add origin server_name
+``` 
+
+##### 13. To view the log
+```bash
+$ git log
+```
+
+##### 14. To branch and to switch to the branches
+```bash
+$ git branch branch_name (to create the branch)
+$ git checkout branch_name (to switch to the branch)
+$ git checkout -b branch_name (both at the same time)
+```
+
+##### 15. To merge with the master
+```bash
+$ git merge branch_name
+```
+
+##### 16. To view the difference
+```bash
+$ git diff source_branch target_branch
+```
+
+--------------
+
+--------------
+
+# Nov 15, 2017
+
+
+
+
