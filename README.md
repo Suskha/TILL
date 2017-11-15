@@ -149,7 +149,8 @@ for k,v in data.items(): #does the loop through all items of dictionary of data 
 ##### 4. Sets -- it doesnot allow duplicate.
 
 
-# Installed conda - anaconda to maintain the environment variable of python
+### Installed conda - anaconda to maintain the environment variable of python
+
 ```bash 
 $ conda create --name py3 python=3  ------ to create the environment variable of python with version 3+ 
 $ conda activate py3 ----- to activate py3 in conda
