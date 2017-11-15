@@ -8,7 +8,7 @@
 
 # Nov 13, 2017
 
-##### In the following day I have learned about the linux and it commands available.
+#### In the following day I have learned about the linux and it commands available.
 Some commands are ls, cd, pwd, mkdir, rm, cp, mv, ln, touch, nano, cat, more, head, tail, top, kill, chmod, ssh, grep, locate, date, uptime, w, whoami, finger, man, whereis, which, tar, gzip, unzip, gunzip, ping, whois, dig, wget, dpkg, diff.
 
 
@@ -18,7 +18,7 @@ Some commands are ls, cd, pwd, mkdir, rm, cp, mv, ln, touch, nano, cat, more, he
 
 # Nov 14, 2017
 
-##### In the following day I have learned about the git (command line) and github.
+#### In the following day I have learned about the git (command line) and github.
 ##### Some commands and remarks
 ##### 1. To know what files are modified
 ```bash
@@ -111,7 +111,7 @@ $ git diff source_branch target_branch
 
 # Nov 15, 2017
 
-##### In the following day I have learned about the python.
+#### In the following day I have learned about the python.
 
 ##### Problem faced :
 
@@ -120,6 +120,8 @@ $ git diff source_branch target_branch
 ##### Solution :
 
 ##### The problem was due to the version of python. The above module is avaliable in python 3+ but I build the code with python 2+. 
+
+#### New syntax learned 
 
 ##### 1. To change string to integer 
 ```bash
