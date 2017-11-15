@@ -9,7 +9,7 @@
 # Nov 13, 2017
 
 ##### In the following day I have learned about the linux and it commands available.
-##### Some commands are ls, cd, pwd, mkdir, rm, cp, mv, ln, touch, nano, cat, more, head, tail, top, kill, chmod, ssh, grep, locate, date, uptime, w, whoami, finger, man, whereis, which, tar, gzip, unzip, gunzip, ping, whois, dig, wget, dpkg, diff.
+Some commands are ls, cd, pwd, mkdir, rm, cp, mv, ln, touch, nano, cat, more, head, tail, top, kill, chmod, ssh, grep, locate, date, uptime, w, whoami, finger, man, whereis, which, tar, gzip, unzip, gunzip, ping, whois, dig, wget, dpkg, diff.
 
 
 --------------
@@ -111,6 +111,48 @@ $ git diff source_branch target_branch
 
 # Nov 15, 2017
 
+##### In the following day I have learned about the python.
 
+##### Problem faced :
+
+##### While running the code the module could not be found, module name - "urllib.request"
+
+##### Solution :
+
+##### The problem was due to the version of python. The above module is avaliable in python 3+ but I build the code with python 2+. 
+
+##### 1. To change string to integer 
+```bash
+a = int ("10") --- the value of a will be 10 with data type int
+```
+##### 2. Unpacking argument
+```bash
+data = [1 ,2 ,3]
+sum = 0
+def add(*args):
+	sum = sum + args
+	return sum
+	
+a = add(*data)
+
+the output will be 6
+```
+
+##### 3. Dictionary 
+```bash 
+data = ['key'='value','key1'='value1']
+for k,v in data.items(): #does the loop through all items of dictionary of data and k keeps the key and v keeps the value.
+```
+
+##### 4. Sets -- it doesnot allow duplicate.
+
+
+# Installed conda - anaconda to maintain the environment variable of python
+```bash 
+$ conda create --name py3 python=3  ------ to create the environment variable of python with version 3+ 
+$ conda activate py3 ----- to activate py3 in conda
+$ source activate py3 ------ to activate py3 in run time
+```
+	
 
 
