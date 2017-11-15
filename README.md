@@ -1,6 +1,6 @@
 # TIL (Today I learned)
 
-#### This is the repo with learned and problem tackled stuffs in programming and other stufffs.
+#### This is the repo with learned and problem tackled in programming and other stufffs.
  
 --------------
 
