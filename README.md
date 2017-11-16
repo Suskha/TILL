@@ -157,6 +157,58 @@ $ conda create --name py3 python=3  ------ to create the environment variable of
 $ conda activate py3 ----- to activate py3 in conda
 $ source activate py3 ------ to activate py3 in run time
 ```
-	
+--------------
+--------------
 
+# Nov 16, 2017
+
+#### It is the continuation of learning of python
+
+##### 1. try and catch
+```bash
+try:
+	number= input("whats the number")
+except:
+	pass
+finally:
+	pass
+```
+###### Some exception error are ValueError- due to input value error, SyntaxError- due to Typo or syntax error, etc
+
+##### 2. class and def __init__(self): . the __init(self) automatically called after the object of the class is created.
+
+##### 3. Instance variable are unique to each object. Class variable is common to each object.
+```bash 
+class RRR:
+	rrr = 3  # class variable
+	def attt(self,x):
+		self.ddd = x   # Instance variable
+```
+
+##### 4. Multiple inheritance is present class mul(paret1,parent2):
+
+##### 5. Threading : threading is done by importing the threading module
+```bash
+import threading
+class d(threading.Thread):
+	def run(self):
+		pass
+
+x= d(name="a")
+y= d(name="b")
+
+x.start() #to start the threading and calls the run function of class d.
+y.start()
+```
+
+##### 6. Unpacking of list is possible with unconsistent variable number
+
+##### 7. Zip is used to combine two list
+
+##### 8. lambda is used to create the onetime function.
+
+--------------
+--------------
+
+# Nov 17, 2017
 
