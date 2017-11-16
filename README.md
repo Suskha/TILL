@@ -8,7 +8,7 @@
 
 # Nov 13, 2017
 
-#### In the following day I have learned about the linux and it commands available.
+In the following day I have learned about the linux and it commands available.
 Some commands are ls, cd, pwd, mkdir, rm, cp, mv, ln, touch, nano, cat, more, head, tail, top, kill, chmod, ssh, grep, locate, date, uptime, w, whoami, finger, man, whereis, which, tar, gzip, unzip, gunzip, ping, whois, dig, wget, dpkg, diff.
 
 
