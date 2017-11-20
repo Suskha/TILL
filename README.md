@@ -228,14 +228,14 @@ y.start()
 ##### 3. A class can access many interfaces.
 
 ##### 4. Anonymous classes can be created as follows
-'''
+```
 Machine mac1 = new Machine() {
 	@Override public void start() {
 		System.out.println("he");
 	}
 };
 //override the start method of Machine class by creating a child class which is anonymous.
-'''
+```
 
 ##### 5. Also interface can be implemented by creating anonymous class.
 
