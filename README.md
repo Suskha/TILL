@@ -212,3 +212,38 @@ y.start()
 
 # Nov 17, 2017
 
+#### In the following day I complete the Linear Regression assignment using normal and gradient descent.
+
+
+# Nov 20, 2017
+
+#### In the following day I started learning Core Java Programming.
+
+##### Unknown stuffs of Java.
+
+##### 1. Static variable are called class variables and non-static variables are called instance variable. Non-static method can access static variable but static method cannot access static variable. Static variable or method can only be accessed by class name.
+
+##### 2. final is added to make the variable or method constant.
+
+##### 3. A class can access many interfaces.
+
+##### 4. Anonymous classes can be created as follows
+'''
+Machine mac1 = new Machine() {
+	@Override public void start() {
+		System.out.println("he");
+	}
+};
+//override the start method of Machine class by creating a child class which is anonymous.
+'''
+
+##### 5. Also interface can be implemented by creating anonymous class.
+
+##### 6. Read can be performed by Scanner, BufferedReader, FileReader etc and write can be performed by BufferedWriter, FileWriter.
+
+##### 7. Abstract class can be created if the instance of the class is not required but child requires the function of the main class. There can only be one abstract class in the hierarchy.
+
+##### 8. Abstract method forces all child to implements the method but class itself will not be able to use it. It's same as interface.
+
+##### 9. == checks only if two objects are pointing literally at the same two references are pointing literally at the same object. where as .equals() checks if they are equal to each other interms of value.
+
