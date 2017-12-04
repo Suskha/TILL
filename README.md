@@ -214,6 +214,8 @@ y.start()
 
 #### In the following day I complete the Linear Regression assignment using normal and gradient descent.
 
+--------------
+--------------
 
 # Nov 20, 2017
 
@@ -228,14 +230,14 @@ y.start()
 ##### 3. A class can access many interfaces.
 
 ##### 4. Anonymous classes can be created as follows
-```
+'''
 Machine mac1 = new Machine() {
 	@Override public void start() {
 		System.out.println("he");
 	}
 };
 //override the start method of Machine class by creating a child class which is anonymous.
-```
+'''
 
 ##### 5. Also interface can be implemented by creating anonymous class.
 
@@ -247,9 +249,39 @@ Machine mac1 = new Machine() {
 
 ##### 9. == checks only if two objects are pointing literally at the same two references are pointing literally at the same object. where as .equals() checks if they are equal to each other interms of value.
 
+--------------
+--------------
 
-# Dec 4, 2017
+# Nov 21, 2017
 
-#### In the following day I started Mysql.
+#### The following day is the continuation of Core Java course.
 
-##### Unknown stuffs of Java.
+##### Unknown stuffs.
+
+##### 10. Like class enum can be created and the object of it can be called.
+
+##### 11. Object can be read or wirte in the file or from the file by serializing and deserializing methods.
+
+##### 12. Arrays of class can be created .
+```
+Person[] people = {new Person(1,”Sue”),new Person(2,”Mike”)};
+```
+
+##### 13. main class can create its own object within it, due to which non-static mehtods can be created and called inside the main mehtod.
+
+##### 14. Types of array i. Arraylist used for fast obtaining data with the help of index. ii. LinkedList used for adding or deleting data from the beginning of the list.
+
+##### 15. Types of map i. HashMap cannot contain duplicate keys and doesnot maintain order. ii. LinkedHashMap maintains the input order. iii. TreeMap arrange in natural order.
+
+##### 16. Types of set are same as maps. i.e. i. HashSet. ii. LinkedHashSet. ii. TreeSet.
+
+Assignment of java started . 
+
+--------------
+--------------
+
+# Dec 04, 2017
+
+#### The following day I start MqSql:
+
+
