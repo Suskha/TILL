@@ -307,18 +307,20 @@ mysql> SHOW TABLES;
 ```
 ##### 5. To view the structure of the table with name tableName
 ```bash
-mysql>  SHOW COLUMNS FROM tableName;
+mysql> SHOW COLUMNS FROM tableName;
+mysql> DESCRIBE tableName;
 ```
 
-##### 6. To insert data into the database
+##### 6. To insert data into the table
 ```bash
 mysql> INSERT INTO tableName(tableField1 ,tableField2 ....) VALUES('value1','value2'.....);
 ```
 
-##### 7. To select data form the table
+##### 7. To select data form the table , multiple comparision can be done with where using comparision operators
 ```bash
-mysql> SELECT selectField1,selectField2 FROM tableName *; # select all data
+mysql> SELECT * FROM tableName; # select all data
 mysql> SELECT selectField1 .... FROM tableName WHERE user ='particular'; # selects particular users  only
+mysql> SELECT selectField1 .... FROM tableName WHERE user IS NULL; # to  check whether the field value is NULL or not
 ```
 
 ##### 8. To grant permission and flush permission
@@ -327,16 +329,29 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'userName'@'hostName';
 mysql> FLUSH PRIVILEGES;
 ```
 
-##### 9. To drop user ,databse
+##### 9. To drop user ,databse,table
 ```bash
 mysql> DROP USER 'userName'@'hostName';
 mysql> DROP DATABASE databaseName;
+mysql> DROP TABLE tableName;
 ```
 
-##### 10. To create databases
+##### 10. To create databases and table
 ```bash
 mysql> CREATE DATABASE databaseName;
+mysql> CREATE TABLE tableName(tableField tabledatatype , -----);
 ```
+
+##### 11. To order the table in ascending order (ASC) descending order (DESC) and LIMIT the output of the query by 1 elemnet
+```bash
+mysql> SELECT * FROM tableName ORDER BY tableField ASC LIMIT 1;
+```
+
+##### 12. Group By is used to group two common data in a field
+```bash
+mysql> SELECT tablefield FROM tableName GROUP BY tableField;
+```
+
 
 ##### Data types used by my sql
 
@@ -353,4 +368,14 @@ mysql> CREATE DATABASE databaseName;
 ##### 6. VARCHAR(M) - can define the length of char
 
 ##### 7. BLOB or TEXT  - with length of 65535 character
+
+
+##### Operators and functions available
+
+##### 1. Comparision operators are : < , <= , > , >= , = , != , NULL : IS
+
+##### 2. Logical operators are : AND , OR , NOT
+
+##### 3. YEAR(Date data) - extracts the year from the date field
+
 
