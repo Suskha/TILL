@@ -284,4 +284,73 @@ Assignment of java started .
 
 #### The following day I start MqSql:
 
+Compound key - is the combination of two key to make single unique key but the two key used alone may not be unique.
+
+##### 1. To set mysql user and password 
+```bash
+$ mysqladmin -u username password "password";
+```
+
+##### 2. Show database
+```bash
+mysql> SHOW DATABASES;
+```
+
+##### 3. To select database
+```bash
+mysql> USE databaseName;
+```
+
+##### 4. To view Table inside the database - First select database then 
+```bash
+mysql> SHOW TABLES;
+```
+##### 5. To view the structure of the table with name tableName
+```bash
+mysql>  SHOW COLUMNS FROM tableName;
+```
+
+##### 6. To insert data into the database
+```bash
+mysql> INSERT INTO tableName(tableField1 ,tableField2 ....) VALUES('value1','value2'.....);
+```
+
+##### 7. To select data form the table
+```bash
+mysql> SELECT selectField1,selectField2 FROM tableName *; # select all data
+mysql> SELECT selectField1 .... FROM tableName WHERE user ='particular'; # selects particular users  only
+```
+
+##### 8. To grant permission and flush permission
+```bash
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'userName'@'hostName';
+mysql> FLUSH PRIVILEGES;
+```
+
+##### 9. To drop user ,databse
+```bash
+mysql> DROP USER 'userName'@'hostName';
+mysql> DROP DATABASE databaseName;
+```
+
+##### 10. To create databases
+```bash
+mysql> CREATE DATABASE databaseName;
+```
+
+##### Data types used by my sql
+
+##### 1. INT , size -2147483648 to 2147483647
+
+##### 2. FLOAT(M,D) , M - display length and D - number of decimal points
+
+##### 3. DATE , format YYYY-MM-DD
+
+##### 4. DATETIME , format YYYY-MM-DD HH:MM:SS
+
+##### 5. CHAR(M)  - size 1 -255 character
+
+##### 6. VARCHAR(M) - can define the length of char
+
+##### 7. BLOB or TEXT  - with length of 65535 character
 
