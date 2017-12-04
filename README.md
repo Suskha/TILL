@@ -247,3 +247,9 @@ Machine mac1 = new Machine() {
 
 ##### 9. == checks only if two objects are pointing literally at the same two references are pointing literally at the same object. where as .equals() checks if they are equal to each other interms of value.
 
+
+# Dec 4, 2017
+
+#### In the following day I started Mysql.
+
+##### Unknown stuffs of Java.
