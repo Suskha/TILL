@@ -158,6 +158,7 @@ $ conda activate py3 ----- to activate py3 in conda
 $ source activate py3 ------ to activate py3 in run time
 ```
 --------------
+
 --------------
 
 # Nov 16, 2017
@@ -208,6 +209,7 @@ y.start()
 ##### 8. lambda is used to create the onetime function.
 
 --------------
+
 --------------
 
 # Nov 17, 2017
@@ -215,6 +217,7 @@ y.start()
 #### In the following day I complete the Linear Regression assignment using normal and gradient descent.
 
 --------------
+
 --------------
 
 # Nov 20, 2017
@@ -230,14 +233,14 @@ y.start()
 ##### 3. A class can access many interfaces.
 
 ##### 4. Anonymous classes can be created as follows
-'''
+```
 Machine mac1 = new Machine() {
 	@Override public void start() {
 		System.out.println("he");
 	}
 };
 //override the start method of Machine class by creating a child class which is anonymous.
-'''
+```
 
 ##### 5. Also interface can be implemented by creating anonymous class.
 
@@ -250,6 +253,7 @@ Machine mac1 = new Machine() {
 ##### 9. == checks only if two objects are pointing literally at the same two references are pointing literally at the same object. where as .equals() checks if they are equal to each other interms of value.
 
 --------------
+
 --------------
 
 # Nov 21, 2017
@@ -278,6 +282,7 @@ Person[] people = {new Person(1,”Sue”),new Person(2,”Mike”)};
 Assignment of java started . 
 
 --------------
+
 --------------
 
 # Dec 04, 2017
@@ -292,64 +297,123 @@ $ mysqladmin -u username password "password";
 ```
 
 ##### 2. Show database
-```bash
-mysql> SHOW DATABASES;
-```
+
+	SHOW DATABASES;
 
 ##### 3. To select database
-```bash
-mysql> USE databaseName;
-```
+
+	USE databaseName;
 
 ##### 4. To view Table inside the database - First select database then 
-```bash
-mysql> SHOW TABLES;
-```
+
+	SHOW TABLES;
+
 ##### 5. To view the structure of the table with name tableName
-```bash
-mysql> SHOW COLUMNS FROM tableName;
-mysql> DESCRIBE tableName;
-```
+
+	SHOW COLUMNS FROM tableName;
+	DESCRIBE tableName;
 
 ##### 6. To insert data into the table
-```bash
-mysql> INSERT INTO tableName(tableField1 ,tableField2 ....) VALUES('value1','value2'.....);
-```
+
+	INSERT INTO tableName(tableField1 ,tableField2 ....) VALUES('value1','value2'.....);
 
 ##### 7. To select data form the table , multiple comparision can be done with where using comparision operators
-```bash
-mysql> SELECT * FROM tableName; # select all data
-mysql> SELECT selectField1 .... FROM tableName WHERE user ='particular'; # selects particular users  only
-mysql> SELECT selectField1 .... FROM tableName WHERE user IS NULL; # to  check whether the field value is NULL or not
-```
+
+	SELECT * FROM tableName; # select all data
+	SELECT selectField1 .... FROM tableName WHERE user ='particular'; # selects particular users  only
+	SELECT selectField1 .... FROM tableName WHERE user IS NULL; # to  check whether the field value is NULL or not
 
 ##### 8. To grant permission and flush permission
-```bash
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'userName'@'hostName';
-mysql> FLUSH PRIVILEGES;
-```
+
+	GRANT ALL PRIVILEGES ON *.* TO 'userName'@'hostName';
+	FLUSH PRIVILEGES;
 
 ##### 9. To drop user ,databse,table
-```bash
-mysql> DROP USER 'userName'@'hostName';
-mysql> DROP DATABASE databaseName;
-mysql> DROP TABLE tableName;
-```
+
+	DROP USER 'userName'@'hostName';
+	DROP DATABASE databaseName;
+	DROP TABLE tableName;
 
 ##### 10. To create databases and table
-```bash
-mysql> CREATE DATABASE databaseName;
-mysql> CREATE TABLE tableName(tableField tabledatatype , -----);
-```
+
+	CREATE DATABASE databaseName;
+	CREATE TABLE tableName(tableField tabledatatype , -----);
 
 ##### 11. To order the table in ascending order (ASC) descending order (DESC) and LIMIT the output of the query by 1 elemnet
-```bash
-mysql> SELECT * FROM tableName ORDER BY tableField ASC LIMIT 1;
-```
+
+	SELECT * FROM tableName ORDER BY tableField ASC LIMIT 1;
 
 ##### 12. Group By is used to group two common data in a field
+
+	SELECT tablefield FROM tableName GROUP BY tableField;
+
+##### 13. Select data from multiple tables
+
+	SELECT table1field,table2field FROM table1,table2 WHERE table1.table1fields = table2.table2fields;
+
+##### 14. Delete data from table
+
+	DELETE FROM tableName WHERE tablefield = something; # deletes according to the comparision
+	DELETE FROM tableName; # deletes all data from table
+
+##### 15. Update table
+
+	UPDATE tableName SET tablefield1 = newvalue1 ,tablefield2 = newvalue2 WHERE compariosion;  #  (where optional)
+
+
+##### 16. Select using LIKE ,REGEXP
+
+	SELECT tablefield FROM tableName WHERE tableField LIKE condition1 [AND | OR ] condition2;
+	SELECT tablefield FROM tableName WHERE tableField LIKE '%elp';
+	SELECT tablefield FROM tableName WHERE tableField REGEXP '^h';
+
+##### 17. To change the column of table ALTER is used
+
+	ALTER TABLE tableName DROP tableField; # to drop the table field
+	ALTER TABLE tableName ADD tableField fieldparameters; # to add table
+	ALTER TABLE tableName MODIFY tableField tableparameters; # to modified the field data types or other parameters
+	ALTER TABLE tableName RENAME TO newTableName; # to rename the table name
+	ALTER TABLE tableName ADD PRIMARY KEY(columnName); # to add primary key
+	ALTER TABLE tableNAme ADD INDEX indexName (columnName); # instead of INDEX UNIQUE can be used
+ # FIRST can be used to make the table field at starting
+ # AFTER can be used to make the table field after the field table
+
+##### 18. To add index key(creating physical object) but primary key (creating logical object)
+	
+	CREATE [UNIQUE] INDEX indexName ON tableName(column1,column2,....); # unique is optional
+
+##### 19. create temporary table
+
+	CREATE TEMPORARY TABLE tableName (...........);
+ # temporay table cannot be seen by using show table but we can still add data
+ # deletes after the user is out
+
+##### 20. create clone of a table
+
+	SHOW CREATE TABLE tableName \G; # to view table create table syntax and remame the table name and run the syntax
+	INSERT INTO tableNameclone (field names) SELECT FROM * tableName; # to copy every data of tableName to clone table .
+
+
+##### 21. To make backup to a file
 ```bash
-mysql> SELECT tablefield FROM tableName GROUP BY tableField;
+$ mysql --local-infile=1 -u root -p # to start mysql inorder to write in file
+```
+	SELECT * FROM tableName INTO OUTFILE 'location';
+	SELECT * FROM tableName INTO OUTFILE 'location' FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n'; # to make copy of table to local disk
+	LOAD DATA LOCAL INFILE 'location' INTO TABLE tableName FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n'; # to copy data from local disk to mysql table
+
+
+##### 22. Make backup using mysqldump
+```bash
+$ mysqldump -u root -p databaseName tableName > location  # to make copy to table only
+$ mysqldump -u root -p databaseName > location # whole database
+$ mysql -u root -p databaseName < location # from location to database
+```
+
+##### 23. using mysqlimport
+```bash
+$ mysqlimport -u root -p --local databaseName location
+$ mysqlimport -u root -p --local --fields-teminated-by=",", --lines-terminated-by="\r\n" location
 ```
 
 
@@ -377,5 +441,4 @@ mysql> SELECT tablefield FROM tableName GROUP BY tableField;
 ##### 2. Logical operators are : AND , OR , NOT
 
 ##### 3. YEAR(Date data) - extracts the year from the date field
-
 
