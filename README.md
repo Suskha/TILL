@@ -377,6 +377,7 @@ $ mysqladmin -u username password "password";
 	ALTER TABLE tableNAme ADD INDEX indexName (columnName); # instead of INDEX UNIQUE can be used
 	
 FIRST can be used to make the table field at starting
+
 AFTER can be used to make the table field after the field table
 
 ##### 18. To add index key(creating physical object) but primary key (creating logical object)
@@ -388,6 +389,7 @@ AFTER can be used to make the table field after the field table
 	CREATE TEMPORARY TABLE tableName (...........);
 
 temporay table cannot be seen by using show table but we can still add data
+
 deletes after the user is out
 
 ##### 20. create clone of a table
@@ -418,29 +420,19 @@ $ mysqlimport -u root -p --local databaseName location
 $ mysqlimport -u root -p --local --fields-teminated-by=",", --lines-terminated-by="\r\n" location
 ```
 
-
 ##### Data types used by my sql
 
-##### 1. INT , size -2147483648 to 2147483647
-
-##### 2. FLOAT(M,D) , M - display length and D - number of decimal points
-
-##### 3. DATE , format YYYY-MM-DD
-
-##### 4. DATETIME , format YYYY-MM-DD HH:MM:SS
-
-##### 5. CHAR(M)  - size 1 -255 character
-
-##### 6. VARCHAR(M) - can define the length of char
-
-##### 7. BLOB or TEXT  - with length of 65535 character
-
+ 1. INT , size -2147483648 to 2147483647
+ 2. FLOAT(M,D) , M - display length and D - number of decimal points
+ 3. DATE , format YYYY-MM-DD
+ 4. DATETIME , format YYYY-MM-DD HH:MM:SS
+ 5. CHAR(M)  - size 1 -255 character
+ 6. VARCHAR(M) - can define the length of char
+ 7. BLOB or TEXT  - with length of 65535 character
 
 ##### Operators and functions available
 
-##### 1. Comparision operators are : < , <= , > , >= , = , != , NULL : IS
-
-##### 2. Logical operators are : AND , OR , NOT
-
-##### 3. YEAR(Date data) - extracts the year from the date field
+ 1. Comparision operators are : < , <= , > , >= , = , != , NULL : IS
+ 2. Logical operators are : AND , OR , NOT
+ 3. YEAR(Date data) - extracts the year from the date field
 
