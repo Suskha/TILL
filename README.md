@@ -375,8 +375,9 @@ $ mysqladmin -u username password "password";
 	ALTER TABLE tableName RENAME TO newTableName; # to rename the table name
 	ALTER TABLE tableName ADD PRIMARY KEY(columnName); # to add primary key
 	ALTER TABLE tableNAme ADD INDEX indexName (columnName); # instead of INDEX UNIQUE can be used
- # FIRST can be used to make the table field at starting
- # AFTER can be used to make the table field after the field table
+	
+FIRST can be used to make the table field at starting
+AFTER can be used to make the table field after the field table
 
 ##### 18. To add index key(creating physical object) but primary key (creating logical object)
 	
@@ -385,8 +386,9 @@ $ mysqladmin -u username password "password";
 ##### 19. create temporary table
 
 	CREATE TEMPORARY TABLE tableName (...........);
- # temporay table cannot be seen by using show table but we can still add data
- # deletes after the user is out
+
+temporay table cannot be seen by using show table but we can still add data
+deletes after the user is out
 
 ##### 20. create clone of a table
 
