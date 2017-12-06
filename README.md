@@ -285,7 +285,7 @@ Assignment of java started .
 
 --------------
 
-# Dec 04, 2017
+# Dec 04, 2017 - Dec 06,2017
 
 #### The following day I start MqSql:
 
@@ -328,7 +328,7 @@ $ mysqladmin -u username password "password";
 	GRANT ALL PRIVILEGES ON *.* TO 'userName'@'hostName';
 	FLUSH PRIVILEGES;
 
-##### 9. To drop user ,databse,table
+##### 9. To drop user ,database,table
 
 	DROP USER 'userName'@'hostName';
 	DROP DATABASE databaseName;
@@ -341,15 +341,18 @@ $ mysqladmin -u username password "password";
 
 ##### 11. To order the table in ascending order (ASC) descending order (DESC) and LIMIT the output of the query by 1 elemnet
 
-	SELECT * FROM tableName ORDER BY tableField ASC LIMIT 1;
+	SELECT * FROM tableName ORDER BY tableField1,tableField2 ASC LIMIT 1;
+	SELECT * FROM tableName LIMIT startNumber,numberOfData;
 
-##### 12. Group By is used to group two common data in a field
+##### 12. Group By is used to group two common data in a field and uing HAVING
 
 	SELECT tablefield FROM tableName GROUP BY tableField;
+	SELECT tablefield FROM tableName GROUP BY tableField HAVING tableField = '';
 
 ##### 13. Select data from multiple tables
 
 	SELECT table1field,table2field FROM table1,table2 WHERE table1.table1fields = table2.table2fields;
+	SELECT tableName.tableField FROM tableName;
 
 ##### 14. Delete data from table
 
@@ -361,16 +364,19 @@ $ mysqladmin -u username password "password";
 	UPDATE tableName SET tablefield1 = newvalue1 ,tablefield2 = newvalue2 WHERE compariosion;  #  (where optional)
 
 
-##### 16. Select using LIKE ,REGEXP
+##### 16. Select using LIKE ,REGEXP ,BETWEEN ,IN
 
 	SELECT tablefield FROM tableName WHERE tableField LIKE condition1 [AND | OR ] condition2;
-	SELECT tablefield FROM tableName WHERE tableField LIKE '%elp';
+	SELECT tablefield FROM tableName WHERE tableField LIKE '%elp'; # % for all and _ for single
 	SELECT tablefield FROM tableName WHERE tableField REGEXP '^h';
+	SELECT tablefield FROM tableName WHERE tableField BETWEEN value1 AND value2;
+	SELECT tablefield FROM tableName WHERE tableField IN ("data",......); # works same as many or
+	SELECT tablefield FROM tableName WHERE tableField NOT IN ("data",......);
 
 ##### 17. To change the column of table ALTER is used
 
-	ALTER TABLE tableName DROP tableField; # to drop the table field
-	ALTER TABLE tableName ADD tableField fieldparameters; # to add table
+	ALTER TABLE tableName DROP [COLUMN] tableField; # to drop the table field
+	ALTER TABLE tableName ADD tableField fieldparameters; # to add tablefield
 	ALTER TABLE tableName MODIFY tableField tableparameters; # to modified the field data types or other parameters
 	ALTER TABLE tableName RENAME TO newTableName; # to rename the table name
 	ALTER TABLE tableName ADD PRIMARY KEY(columnName); # to add primary key
@@ -411,7 +417,7 @@ $ mysql --local-infile=1 -u root -p # to start mysql inorder to write in file
 ```bash
 $ mysqldump -u root -p databaseName tableName > location  # to make copy to table only
 $ mysqldump -u root -p databaseName > location # whole database
-$ mysql -u root -p databaseName < location # from location to database
+$ mysql -u root -p databaseName '<' Llocation # from location to database
 ```
 
 ##### 23. using mysqlimport
@@ -419,6 +425,54 @@ $ mysql -u root -p databaseName < location # from location to database
 $ mysqlimport -u root -p --local databaseName location
 $ mysqlimport -u root -p --local --fields-teminated-by=",", --lines-terminated-by="\r\n" location
 ```
+
+##### 24. To get distinct data from similar data
+
+	SELECT DISTINCT * FROM tableName;
+	
+##### 25. To create custom column with its own structure
+
+	SELECT CONCAT(tablefield, ', ',tablefield) FROM tableName; # to view only
+	SELECT CONCAT(tablefield, ', ',tablefield) AS newTableFieldName FROM tableName; # giving name to new concated data
+	SELECT tablefield1,tablefield1-1 AS newName FROM tableName;
+
+##### 26. Subqueries
+
+	SELECT tableField FROM tableName WHERE tableField > (
+	SELECT tableField FROM tableName  --it is done first 
+	) ORDER BY tableField;
+
+##### 27. JOIN
+
+left outer join
+
+	SELECT tablename1.tablefield , tablename2.tablefiled FROM tablename1 LEFT OUTER JOIN tablename2 ON tablename1.tablefield = tablename2.tablefield;
+	--selects all value from left table i.e tablename1
+	
+right outer join
+
+	SELECT tablename1.tablefield , tablename2.tablefiled FROM tablename1 RIGHT OUTER JOIN tablename2 ON tablename1.tablefield = tablename2.tablefield;
+	 --selects all value from right table i.e tablename2
+	 
+##### 28. UNION
+
+	SELECT tablefield1,tablefield2 FROM tablename WHERE tablefield3 > something
+	UNION
+	SELECT tablefield1,tablefield2 FROM tablename WHERE tablefield4 > something;
+	-- UNION removes duplicate entry and UNION ALL keeps duplicate entry
+	
+##### 29. fulltext searching
+
+	ALTER TABLE tableField ADD FULLTEXT(tablefield); 
+	-- to enable fulltext in tablefield
+	SELECT tablefield FROM tableName WHERE Match(tableField) Against('search item');
+	-- tableField should be fulltext enabled
+	SELECT tablefield FROM tableName WHERE Match(tableField) Against('+search item -notincluded item' IN BOOLEAN MODE);
+
+##### 30. To create view
+
+	CREATE VIEW viewName AS SELECT filedNmae FROM tableName
+	ORDER BY fieldName;
 
 ##### Data types used by my sql
 
@@ -435,4 +489,13 @@ $ mysqlimport -u root -p --local --fields-teminated-by=",", --lines-terminated-b
  1. Comparision operators are : < , <= , > , >= , = , != , NULL : IS
  2. Logical operators are : AND , OR , NOT
  3. YEAR(Date data) - extracts the year from the date field
+ 4. CONCAT(fields) - adds to value
+ 5. UPPER(filed) - creates string with all uppercase
+ 6. SQRT(field) - square roo the filed data
+ 7. AVG(field) - gives the average of the field
+ 8. SUM(field) - adds all the data of the field
+ 9. COUNT(field) - counts the how many time the data is repeated
+ 10. MAX(field) - gives maximum value
+ 11. MIN(field) - gives minimum value
+ 12. AS can be used to give nick name to table field,table,
 
