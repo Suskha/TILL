@@ -499,3 +499,186 @@ right outer join
  11. MIN(field) - gives minimum value
  12. AS can be used to give nick name to table field,table,
 
+
+--------------
+
+--------------
+
+# Dec 08, 2017
+
+#### The following day I start Mongodb:
+
+To start mongodb by terminal : 
+```bash
+$ sudo service mongodb start
+$ sudo mongo
+$ sudo service mongodb stop
+```
+
+##### Syntax of mongodb
+
+- To **show databases** : 
+	
+		show dbs
+	
+- To create **new database**:
+
+		use databasename;
+		
+- To delete **database**
+
+		db.dropDatabase();
+
+- To know the currently **working databse**:
+
+		db
+
+- To create **user**:
+
+		db.createUser(
+		{user= "grunze",
+		pwd="changeme",
+		roles=["readWrite","dbAdmin"]
+		});
+    
+- To create **Collections** and **view** the collection in the database:
+
+		db.createCollections('collectionName'); --to create collections
+		-- collection can also be created by directly inserting data
+		show collections --to show collection
+		
+- To **drop collections** :
+
+		db.collectionName.drop();
+
+- To **insert data** in **collections** :
+
+		db.collectionName.insert([{
+		fieldName:"grunze",
+		fieldName:123},
+		{for more data}
+		]);
+		
+		db.collectionName.find();  --to view collection data
+		
+- To **update** the data:
+
+		db.collectionName.update(
+		{fieldName:"toFind"},
+		{fieldName:"toUpdateto with other non updating field"}
+		);
+		
+	- to find and add particular value:
+	
+			db.collectionName.update(
+			{fieldName:"toFind"},
+			{$set:{fieldName:"toUpdateto"}}
+			);
+		
+	- to check and update data, if not present then add :
+
+			db.collectionName.update(
+			{fieldName:"toFind"},
+			{fieldName:"toUpdateto with other non updating field"},
+			{upsert : true}
+			);
+			
+	- to update multiple data at once
+	
+			db.collectionName.update(
+			{fieldName:"toFind"},
+			{$set:{fieldName:"toUpdateto"}},
+			{multi:true}
+			);			
+
+- To **increment value** :
+
+		db.collectionName.update(
+		{fieldName:"toFind"},
+		{$inc:{fieldNameToIncrement:byHowmuch}}
+		);
+		
+- To **remove** a **field**:
+
+		db.collectionName.update(
+		{fieldName:"toFind"},
+		{$unset:{fieldNameToRemove:1}}
+		);
+		
+		
+- To **rename** field:
+	
+		db.collectionName.update(
+		{fieldName:"toFind"},
+		{$rename:{oldfieldName:newFieldName}}
+		);
+		
+- To **remove data** :
+
+	- To remove all data with common fieldName:
+	
+			db.collectionName.remove(
+			{fieldName:"toRemove"}
+			);
+	
+	- To remove only first data it finds
+	
+			db.collectionName.remove(
+			{fieldName:"toRemove"},
+			{justOne:1}
+			);
+		
+- To **find data**:
+
+		db.collectionName.find();
+
+	- normal find:
+	
+			db.collectionName.find(
+			{fieldName:"toFind"});
+			
+	- find only one:
+	
+			db.collectionName.findOne();
+			
+	- by using **or**:
+	
+			db.collectionName.find(
+			{$or:[
+			{fieldName:"tofind"},
+			{fieldName:"tofind"}]});
+			
+	- by using **lt**(less than) or **gt**(greater than) or **lte**(lt or equals to ) or **gte**(gt or equals to) or **ne**(not equal to):
+	
+			db.collectionName.find(
+			{fieldName:{$lt:value}}
+			);
+	
+	- in object:
+	
+			db.collectionName.find(
+			{"fieldName.fieldNameVariable":"fieldvalue"});
+			
+- To sort data:
+
+		db.collectionName.find().sort(
+		{fieldName:order});
+		--order for asc = 1 , desc = -1
+		
+- To count :
+
+		db.collectionName.find().count();
+		
+- To limit :
+
+		db.collectionName.find().limit(value);
+		
+- use of foreach
+
+		db.collectionName.find().forEach(function(doc){print("A: " +doc.fieldName)});
+		
+		
+		
+		
+		
+##### 
