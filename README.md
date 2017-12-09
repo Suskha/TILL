@@ -659,6 +659,11 @@ $ sudo service mongodb stop
 			db.collectionName.find(
 			{"fieldName.fieldNameVariable":"fieldvalue"});
 			
+	- To select field as required:
+	
+			db.collectionName.find({},{
+			fieldName:1,_id:0});
+			
 - To sort data:
 
 		db.collectionName.find().sort(
@@ -673,12 +678,40 @@ $ sudo service mongodb stop
 
 		db.collectionName.find().limit(value);
 		
-- use of foreach
+- use of foreach :
 
 		db.collectionName.find().forEach(function(doc){print("A: " +doc.fieldName)});
 		
+- To skip :
 		
+		db.collectionName.find().skip(value);
 		
+- To create, get and drop index :
+
+		db.collectionName.ensureIndex({fieldName:1});
 		
+		db.collectionName.getIndexes();
+		
+		db.collectionName.dropIndex({indexedFieldName:1});
+		
+- Aggregation
+
+		db.employees.aggregate([{$group:{_id:"$fieldName",total:{$sum:1}}}]);
+		
+		db.employees.aggregate([{$group:{_id:"$fieldName",MaxAge:{$max:"$Age"}}}]);
+		
+- Backupp and restore
+	
+		mongodump;
+		
+		mongorestore;
+		
+		mongodump --db databaseName
+		
+		mongorestore --db databaseName path
+		
+		mongodump --db databaseName --collection collectionName
+		
+		mongorestore --db databaseName --collection collectionName path
 		
 ##### 
