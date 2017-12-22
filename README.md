@@ -742,3 +742,198 @@ $ sudo service mongodb stop
 - to get negative random number in java
 
 		(Math.random()*(.06))-.03;
+		
+
+***
+***
+
+
+# Dec 22,2017
+
+#### The following day I stated Gradle:
+
+* Gradle uses Groovy domain specific language.
+
+* To be a gradle project the project should contain 'gradle.build' file.
+
+* How to view task in gradle:
+
+```bash
+$ gradle tasks
+```
+
+* How to run gradle project: 
+
+```bash
+$ gradle build
+```
+It creates the build folder in the main directory.
+
+* apply plugin : "java" -- for every java project and adds few task to project.
+
+* sourceSets -- represents a logical group of Java source and resources.
+		
+	* one way to write sourceSets.
+	
+			sourceSets {
+				main.java.srcDir "src/main"
+				test.java.srcDir "src/main"
+			}
+		
+	* second way to write sourceSets.
+	
+			sourceSets.main.java.srcDir "src/main"
+			
+	* third way to write sourceSets.
+	
+			sourceSets {
+				main {
+					java {
+						// srcDir "src/main"
+						// srcDir("src/main")
+						srcDir = ["src/main"]
+					}
+				}
+			}
+	
+* Manifest file should contain :
+		
+		Main-Class : ___.___.__.Main
+		
+* To write the required path in the Manifest file during the gradle build :
+
+		jar {
+			manifest.attributes "Main-Class": "____.___.__.Main"
+		}
+		
+* To add dependencies :
+	* location of dependencies is defined by following ways :
+		
+			repositories {
+				// maven { url "urlNmae" }
+				mavenCentral()
+			}
+
+	* which dependencies is required is defined by following method :
+		
+			dependencies {
+				compile "groupID:artifactID:version"
+				compile group:"groupID", name: "artifactID",version:"version"
+			}
+
+	* To add the dependencies in the required folder for jar file :
+	
+			jar {
+				from configurations.compile
+				// adds jar file  directly to the jar file of the program
+				from configurations.compile.collect { entry -> zipTree entry }
+				from configurations.compile.collect { zipTree it }
+			}
+			
+	* To add configuration :
+		
+			configurations {
+				myConfig
+			}
+			
+			dependencies {
+				myConfig "groupID:artifactID:version"
+			}
+			
+			jar {
+				from configurations.myConfig.collect { zipTree it }
+			}
+
+	* Artifacts
+		
+			artifacts {
+				myconfig jar
+			}
+
+* To view the dependencies
+```bash
+$ gradle dependencies
+```
+
+* To create custom task :
+
+		task taskName(group: 'greeting', description: 'Greets you.')
+		task taskName {
+			group 'greeting'
+			description 'Greets you'
+			
+			// during configuration phase
+			println 'hello'
+			ext.greeting = 'Hey' 
+			
+			// during execution phase
+			doLast { println 'second!' }
+			doLast { println 'third' }
+			doFirst { println 'first' }
+			doLast { println "Greeting: $greeting" }
+			
+		}
+
+		hello << { println 'I was appended using <<' }    ---- same as doLast
+		
+		
+		task runJar(type: Exec, dependsOn: jar) {
+			exectuable 'jar'
+			args '-jar', "$jar.archivePath", 'HelloWorld'
+		}
+		
+		task run(type: JavaExec, dependsOn: classes) {
+			main '----.---.---.Main'
+			classpath sourceSets.main.runtimeClasspath
+			args 'Hello World'
+			args '-jar
+		}
+		
+		task hello {
+			onlyIf { true }
+		} << {
+			println 'Hello!'
+		}
+		
+		hello enabled = false
+
+***
+***
+
+# Dec
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
