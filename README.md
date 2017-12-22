@@ -506,7 +506,7 @@ right outer join
 
 # Dec 08, 2017
 
-#### The following day I start Mongodb:
+#### The following day I started Mongodb:
 
 To start mongodb by terminal : 
 ```bash
@@ -545,6 +545,7 @@ $ sudo service mongodb stop
 
 		db.createCollections('collectionName'); --to create collections
 		-- collection can also be created by directly inserting data
+		
 		show collections --to show collection
 		
 - To **drop collections** :
@@ -686,7 +687,7 @@ $ sudo service mongodb stop
 		
 		db.collectionName.find().skip(value);
 		
-- To create, get and drop index :
+- To create, get and drop **index** :
 
 		db.collectionName.ensureIndex({fieldName:1});
 		
@@ -714,4 +715,30 @@ $ sudo service mongodb stop
 		
 		mongorestore --db databaseName --collection collectionName path
 		
-##### 
+		
+--------------
+
+--------------
+
+# Dec 11, 2017
+
+#### The following day I started Advanced Java:
+
+- Some deciding condition:
+	
+	- Is a (decides if class should extends another class)
+	
+			Is a 'Dog' an 'animal' - true (Dog extends animal)
+			Is a 'Dog' a 'cat' - false (Dog doesnot extends animal)
+	
+	- Has a (decides if something is a field)
+	
+			'Dog' has a 'height' - true (dog requires a height field)
+			
+- decoupling 
+
+- Observer pattern - loose coupling
+
+- to get negative random number in java
+
+		(Math.random()*(.06))-.03;
