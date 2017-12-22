@@ -897,6 +897,30 @@ $ gradle dependencies
 		
 		hello enabled = false
 
+
+#### Gradle Wrapper
+
+* controls the version of gradle running
+
+* gradle.build file should contain wrapper task as :
+
+		task wrapper(type: Wrapper) {
+			gradleVersion = '1.0-milestone-6'
+		}
+
+* should be run as:
+```bash
+$ gradle wrapper
+```
+It creates gradle(contains wrapper(wrapper jar file and properties file is present) folder) folder,gradlew.bat file and gradlew(executable) file.
+
+* To run using gradlew :
+```BASH
+$ ./gradlew build
+```
+downloads required gradle version specified at wrapper and build the project.
+
+
 ***
 ***
 
@@ -937,3 +961,4 @@ $ gradle dependencies
 
 
 
+	
