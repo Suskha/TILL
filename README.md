@@ -940,9 +940,23 @@ downloads required gradle version specified at wrapper and build the project.
  	5. Refactor code
 	6. Repeat
 
+***
+***
 
+# DEC 26, 2017
 
+#### The following day I stated JUnit and Mokito:
 
+* unit testing is where we test the code at unit level or class level.
+
+* JUnit 4 consists of different annotaion to make the test easily.
+	* @Test - is used to denote the test method.
+	* @Before - is used for setUp mehtod where we create all the objects required for the test and all the data we want to setup for the test. Runs before each test method we write in test method.
+	* @After - runs after every test method.
+	* @BeforeClass - runs only once for the entire test class right at the beginning.
+	* @Ignore  - when marked in the test class then the particular test class will be ignored.
+	* @RunWith(SpringJUnit4ClassRunner.class) - for spring project
+	* @RunWith(BlockJUnit4ClassRunner.class) - default
 
 
 
