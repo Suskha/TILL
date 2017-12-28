@@ -943,7 +943,7 @@ downloads required gradle version specified at wrapper and build the project.
 ***
 ***
 
-# DEC 26, 2017
+# DEC 26-28, 2017
 
 #### The following day I stated JUnit and Mokito:
 
@@ -951,6 +951,7 @@ downloads required gradle version specified at wrapper and build the project.
 
 * JUnit 4 consists of different annotaion to make the test easily.
 	* @Test - is used to denote the test method.
+		* @Test(expected = IllegalArgumentException.class)
 	* @Before - is used for setUp mehtod where we create all the objects required for the test and all the data we want to setup for the test. Runs before each test method we write in test method.
 	* @After - runs after every test method.
 	* @BeforeClass - runs only once for the entire test class right at the beginning.
@@ -958,16 +959,58 @@ downloads required gradle version specified at wrapper and build the project.
 	* @RunWith(SpringJUnit4ClassRunner.class) - for spring project
 	* @RunWith(BlockJUnit4ClassRunner.class) - default
 
+* Mocking is testing in isolation
 
+* Mockito is available for Mock test.
+	* @Mock - stub and setting exceptions
+		* when
+		* thenReturn
+		* thenThrow
+	* verification by
+		* verify
+			* verify(classObject,times(value))
+			* verify(classObject,atLeast(value))
+		* matchers
+			* anyInt() - acts as integer value
+			* any(className.class) - acts as class object
 
+* Code coverage or test coverage is number of lines of source code that is tested when unit test are run against the source code. Includes:
+	* Conditional Statement
+	* Loops
+	* number of parameters we pass in the method and types of parameter.
+provides details about which part of source code are used and which are not used and also tells which part of code needs more testing..
+	* test tools :
+		* EclEmma - uses jacoco open source library
+		* cobertura
+		* JTest
 
+* While using mock in 'void' we donot need 'when' because it doesnot return anything. Simply call the void method.
+	* doNothing().when(className).voidmethodName();
 
+* Spices
+	* @Spy  - is used to partically mock the required field.
+		* Mockito.doReturn(3).when(mockobject).size();
+		* we cannot use 'when' directly in spy.
+		* partical mocking can also be done by using @Mock : (Better way for partial mocking)
+		Mockito.when(myList.get(0)).thenReturn("game");
+		Mockito.when(myList.size()).thenCallRealMethod();
+		
+* Parametarized IUnit test
+	* first define the parameters 
+	* then create constructor
+	* then define the static method where the required parameters are declared and annotate with:
+	@Parameters
+	* then add runwith annotation in the top as:
+	@RunWith(Parameterized.class)
 
-
-
-
-
-
+* Mockito Limitations: Cannot mock following test. Solution is to use PowerMock.
+>Mockito uses proxy pattern to mock.
+>PowerMock does byte code manipulation and custom class loader.
+	* Static
+	* Final
+	* Constructors
+	* Private
+	* Enums
 
 
 
